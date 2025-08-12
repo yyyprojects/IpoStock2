@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Guide to IPOs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Brilliant Blues -->
+    <!-- Application Structure Plan: The infographic follows a logical narrative flow, starting with a high-level definition of an IPO, then detailing the 'why' (objectives), the 'how' (process), the 'who' (stakeholders), and finally, the 'what's in it for me?' (investor perspective). This structure guides the user from basic concepts to more detailed information, making a complex topic accessible. Each section is designed as a distinct visual block to improve readability on a scrolling page. -->
+    <!-- Visualization & Content Choices: 1. Primary Objectives -> Goal: Compare -> Viz: Chart.js Donut Chart -> Justification: Effectively shows the composition of primary motivations for going public. 2. IPO Process -> Goal: Organize -> Viz: HTML/CSS Timeline -> Justification: Clearly visualizes the sequential, multi-stage nature of the IPO journey. 3. Key Stakeholders -> Goal: Organize/Relate -> Viz: HTML/CSS Diagram -> Justification: Illustrates the relationships and roles of different parties in a clear, non-linear format. 4. Investor Risks vs. Opportunities -> Goal: Compare -> Viz: Chart.js Bar Chart -> Justification: Provides a direct visual comparison of the positive and negative factors for investors, highlighting the balance of risk. All visualizations are built without SVG or Mermaid JS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F0F4F8; }
+        .chart-container { position: relative; width: 100%; max-width: 500px; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; max-height: 400px; } }
+        .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; background-color: #4A90E2; transform: translateX(-50%); }
+        .timeline-item { position: relative; }
+        .timeline-dot { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 24px; height: 24px; background-color: white; border: 4px solid #4A90E2; border-radius: 50%; z-index: 10; }
+        .kpi-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .kpi-card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+    </style>
+</head>
+<body class="text-gray-700">
+
+    <div class="container mx-auto px-4 py-12 md:py-20">
+
+        <header class="text-center mb-16 md:mb-24">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-[#0A2A43] mb-4">The Journey of an IPO</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-600">From a private dream to a public reality. An Initial Public Offering (IPO) is how a private company becomes publicly traded by selling its shares on a stock exchange for the first time.</p>
+        </header>
+
+        <section id="why-go-public" class="mb-16 md:mb-24">
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-[#0A2A43] mb-4">Why Go Public?</h2>
+                        <p class="mb-6">Companies pursue an IPO for several strategic reasons, fundamentally changing their future. The primary motivation is to raise significant capital to fuel growth, but it also provides liquidity for early investors and enhances the company's public profile.</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-[#4A90E2] mr-3"></span><strong>Access to Capital:</strong> Fund expansion and new projects.</div>
+                            <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-[#50E3C2] mr-3"></span><strong>Liquidity:</strong> Allow founders and investors to cash out.</div>
+                            <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-[#F5A623] mr-3"></span><strong>Enhanced Profile:</strong> Boost brand recognition and credibility.</div>
+                            <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-[#BD10E0] mr-3"></span><strong>Acquisitions:</strong> Use stock as currency for M&A.</div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="objectivesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="mb-16 md:mb-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0A2A43] mb-12">The 4 Phases of the IPO Process</h2>
+            <div class="relative timeline max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+                    
+                    <div class="timeline-item mb-12 md:mb-0">
+                        <div class="md:text-right md:pr-12">
+                            <div class="timeline-dot"></div>
+                            <h3 class="text-2xl font-bold text-[#4A90E2]">Phase 1: Preparation</h3>
+                            <p class="mt-2">The company gets its internal finances and governance in order. It then selects investment banks (underwriters) in a "bake-off" to manage the process.</p>
+                        </div>
+                    </div>
+                    <div></div>
+
+                    <div></div>
+                    <div class="timeline-item mb-12 md:mb-0">
+                        <div class="md:pl-12">
+                            <div class="timeline-dot"></div>
+                            <h3 class="text-2xl font-bold text-[#4A90E2]">Phase 2: Filing & Marketing</h3>
+                            <p class="mt-2">The company files an S-1 registration statement with the SEC. Management then goes on a "roadshow" to pitch the company to institutional investors and build demand.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item mb-12 md:mb-0">
+                        <div class="md:text-right md:pr-12">
+                             <div class="timeline-dot"></div>
+                            <h3 class="text-2xl font-bold text-[#4A90E2]">Phase 3: Pricing & Listing</h3>
+                            <p class="mt-2">After the roadshow, the final IPO price is set based on demand. Shares are allocated to investors, and the stock officially begins trading on an exchange like the NYSE or Nasdaq.</p>
+                        </div>
+                    </div>
+                    <div></div>
+
+                    <div></div>
+                    <div class="timeline-item">
+                        <div class="md:pl-12">
+                            <div class="timeline-dot"></div>
+                            <h3 class="text-2xl font-bold text-[#4A90E2]">Phase 4: Post-IPO</h3>
+                            <p class="mt-2">Underwriters may stabilize the stock price. Insiders face "lock-up periods" where they cannot sell shares, and the company begins its life under public scrutiny and reporting obligations.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="stakeholders" class="mb-16 md:mb-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0A2A43] mb-12">The Key Players</h2>
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="kpi-card bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="text-4xl mb-4">🏢</div>
+                    <h3 class="text-xl font-bold text-[#0A2A43]">The Company</h3>
+                    <p class="mt-2 text-sm">Drives the decision, prepares the business, and works with all parties to go public.</p>
+                </div>
+                <div class="kpi-card bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="text-4xl mb-4">🏦</div>
+                    <h3 class="text-xl font-bold text-[#0A2A43]">Underwriters</h3>
+                    <p class="mt-2 text-sm">Investment banks that advise on valuation, manage the process, and sell the shares to investors.</p>
+                </div>
+                <div class="kpi-card bg-white rounded-xl shadow-lg p-6 text-center">
+                    <div class="text-4xl mb-4">⚖️</div>
+                    <h3 class="text-xl font-bold text-[#0A2A43]">Legal & Accounting</h3>
+                    <p class="mt-2 text-sm">Lawyers draft SEC documents, while auditors verify financial statements for accuracy and compliance.</p>
+                </div>
+                <div class="kpi-card bg-white rounded-xl shadow-lg p-6 text-center lg:col-span-3">
+                    <div class="text-4xl mb-4">🏛️</div>
+                    <h3 class="text-xl font-bold text-[#0A2A43]">Regulators (SEC & FINRA)</h3>
+                    <p class="mt-2 text-sm">The SEC reviews filings for full disclosure, while FINRA ensures underwriting terms are fair. Their approval is required before the IPO can proceed.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="investor-view">
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-[#0A2A43] mb-2">The Investor's Corner</h2>
+                <p class="text-center max-w-2xl mx-auto mb-10">IPOs offer a chance to invest in high-growth companies early, but they come with significant risks, including high volatility and potential overpricing due to hype.</p>
+                <div class="chart-container mx-auto">
+                    <canvas id="risksOpportunitiesChart"></canvas>
+                </div>
+                <p class="text-center text-xs text-gray-500 mt-4">This chart illustrates the key opportunities and risks investors face. A careful analysis of the company's S-1 filing is crucial to making an informed decision.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="text-center py-8 px-4">
+        <p class="text-sm text-gray-500">Infographic created based on the report "Initial Public Offerings (IPOs) in the United States". For educational purposes only.</p>
+    </footer>
+
+    <script>
+        const wrapLabel = (label) => {
+            const maxLen = 16;
+            if (label.length <= maxLen) return label;
+            const words = label.split(' ');
+            let currentLine = '';
+            const lines = [];
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLen) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) lines.push(currentLine);
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            return Array.isArray(label) ? label.join(' ') : label;
+        };
+
+        const objectivesChartCtx = document.getElementById('objectivesChart').getContext('2d');
+        new Chart(objectivesChartCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Access to Capital', 'Liquidity for Insiders', 'Enhanced Profile', 'Stock for M&A'],
+                datasets: [{
+                    label: 'Primary Objectives',
+                    data: [45, 25, 20, 10],
+                    backgroundColor: ['#4A90E2', '#50E3C2', '#F5A623', '#BD10E0'],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: { title: tooltipTitleCallback }
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+
+        const risksOpportunitiesChartCtx = document.getElementById('risksOpportunitiesChart').getContext('2d');
+        new Chart(risksOpportunitiesChartCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapLabel('Access to High-Growth Companies'),
+                    wrapLabel('Potential for High Returns'),
+                    wrapLabel('High Price Volatility'),
+                    wrapLabel('Risk of Overpricing due to Hype'),
+                    wrapLabel('Limited Financial History'),
+                    wrapLabel('Insider Selling Pressure')
+                ],
+                datasets: [{
+                    label: 'Impact',
+                    data: [85, 90, -95, -80, -75, -70],
+                    backgroundColor: (context) => context.raw >= 0 ? '#50E3C2' : '#E94F37',
+                    borderRadius: 6,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'Investor Opportunities vs. Risks', font: { size: 16, weight: 'bold' }, color: '#0A2A43' },
+                    tooltip: {
+                        callbacks: { title: tooltipTitleCallback }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { display: false }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { color: '#0A2A43', font: { weight: '500' } }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
